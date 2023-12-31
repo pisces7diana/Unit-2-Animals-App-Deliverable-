@@ -48,6 +48,40 @@ app.get('/animals/new', (req, res) => {
     res.render('new.ejs')
 })
 
+// Delete
+app.delete('/animals/:id', async (req, res) => {
+    try {
+        // find animal and then delete
+        let deletedAnimal = await Animal.findByIdAndDelete(req.params.id)
+
+        console.log(deletedAnimal)
+        
+        // redirect back to index page
+        res.redirect('/animals')
+
+    // try {
+    } catch (err) {
+        // res.send(err)
+        res.status(500).send('delete not successful')    }
+})
+
+
+
+
+
+// Update
+
+
+
+
+
+
+// Edit
+
+
+
+
+
 
 // Create
 app.post('/animals', async (req, res) => {

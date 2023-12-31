@@ -13,10 +13,15 @@
             <a href='/animals/<%= animals[i]._id %>'>
                 <%= animals[i].species %>
             </a>
-            <p> Click here to see more</p>
+            
+            <p>Click here to see more</p>
+
+            <!--delete form here-->
+            <form action='/animals/<%= animals[i]._id%>/_method=DELETE' method='post'>
+                <input type='submit' value='Delete Animal'>
+            </form>
 
         </div>
-    
     <% } %>
 </body>
 </html>
