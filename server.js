@@ -32,19 +32,37 @@ app.use(express.urlencoded({extended: true}))
 
 
 // Index
+app.get('/animals', async (req, res) => {
+    // find all of the animals
+    let animals = await Animal.find({})
+
+    // render all of the animals to index.ejs
+    res.render('index.ejs', {animals: animals.reverse() })
+})
 
 
 
 // New
-
+app.get('/animals/new', (req, res) => {
+    // res.send('new animal')
+    res.render('new.ejs')
+})
 
 
 // Create
 app.post('/animals', async (req, res) => {
     // res.send('received')
     try {
+        if (req.body.extinct === 'on') {
+            // if checked
+            req.body.extinct = true
+    } else {
+            // if not checked
+            req.body.extinct = false
+    }
         let newAnimal = await Animal.create(req.body)
-        res.send(newAnimal)
+        // res.send(newAnimal)
+        res.redirect('/animals')
 
         // try {
     } catch (err) {
@@ -55,6 +73,15 @@ app.post('/animals', async (req, res) => {
 
 
 // Show - always last
+app.get('/animals/:id', async (req, res) => {
+    // find an animal by _id
+    let foundAnimal = await Animal.findById(req.params.id)
+
+    // console.log(foundAnimal)
+
+    // render show.ejs with the foundAnimal
+    res.render('show.ejs', { animal: foundAnimal })
+})
 
 
 

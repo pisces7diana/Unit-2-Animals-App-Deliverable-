@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./docname/head.ejs') %>
+<body>
+
+    <%- include('./docname/nav.ejs') %>
+    
+    <h1>New Animal Form</h1>
+
+    <%# <a href='/animals'>Go Back to Animals List</a> %>
+
+    <form action="/animals" method="post">
+        <label>Species: <input type="text" name="species"></label><br><br>
+        <label>Extinct: <input type="checkbox" name="extinct"></label><br><br>
+        <label>Location: <input type="text" name="location"></label><br><br>
+        <label>Life Expectancy: <input type="text" name="lifeExpectancy"></label><br><br>
+        
+        <input type="submit" value="Add a new Animal to the list">
+    </form>
+</body>
+</html>

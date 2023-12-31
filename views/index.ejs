@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./docname/head.ejs') %>
+<body>
+    <%# console.log(animals) %>
+
+    <%- include('./docname/nav.ejs') %>
+
+    <h1>Animals Index</h1>
+
+    <% for (let i = 0; i < animals.length; i++) { %>
+        <div>
+            <a href='/animals/<%= animals[i]._id %>'>
+                <%= animals[i].species %>
+            </a>
+            <p> Click here to see more</p>
+
+        </div>
+    
+    <% } %>
+</body>
+</html>
