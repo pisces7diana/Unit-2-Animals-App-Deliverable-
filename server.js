@@ -145,21 +145,21 @@ app.get('/animals/edit/:id', async (req, res) => {
 // Update
 app.put('/animals/:id', async (req, res) => {
     try {
-    // handle the checkbox
-    if(req.body.extinct === 'on') {
-        req.body.extinct = true
-    } else {
-        req.body.extinct = false
-    }
+        // handle the checkbox
+        if(req.body.extinct === 'on') {
+            req.body.extinct = true
+        } else {
+            req.body.extinct = false
+        }
 
-    // find by id and update with the req. body
-    let updatedAnimal = await Animal.findByIdAndUpdate(req.params.id,req.body)
+        // find by id and update with the req. body
+        let updatedAnimal = await Animal.findByIdAndUpdate(req.params.id,req.body)
 
-    // redirect to the show route with the updated animal
-    // res.send(req.body)
-    res.redirect(`/animals/${updatedAnimal._id}`)
+        // redirect to the show route with the updated animal
+        // res.send(req.body)
+        res.redirect(`/animals/${updatedAnimal._id}`)
 
-    // try {
+        // try {
     } catch(error) {
         res.send('Update Route error')
     }
