@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./docname/head.ejs') %>
+    <%- include('./partials/head.ejs') %>
 <body>
-    <% console.log(animal) %>
-    <%- include('./docname/nav.ejs') %>
+    
+    <%# console.log(animal) %>
+
+    <%- include('./partials/nav.ejs') %>
+
     <%# <h1>Animal Show Page</h1> %>
-    <h1>What's the Animal about?</h1>
-    <h2>Species: <%= animal.species %> </h2>
-    <h2>Extinct: <%= animal.extinct ? "Yes, it went to animal heaven" : "Nah, it's aliiive!" %> </h3>
-    <h2>Location: <%= animal.location %> </h4>
-    <h2>Life Expectancy: <%= animal.lifeExpectancy %> </h5>
+
+    <h2>What's the Animal about?</h2>
+
+    <!-- Link to our edit page -->
+    <a href='/animals/edit/<%= animal._id %>/'>Edit <%= animal.species %></a>
+    
+    <h3>Species: <%= animal.species %> </h3>
+    <h3>Extinct: <%= animal.extinct ? "Yes, it went to animal heaven" : "Nah, it's aliiive!" %> </h3>
+    <h3>Location: <%= animal.location %> </h3>
+    <h3>Life Expectancy in years: <%= animal.lifeExpectancy %> </h3>
+        
 </body>
 </html>

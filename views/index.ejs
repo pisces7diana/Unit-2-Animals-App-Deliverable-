@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./docname/head.ejs') %>
+    <%- include('./partials/head.ejs') %>
 <body>
     <%# console.log(animals) %>
 
-    <%- include('./docname/nav.ejs') %>
+    <%- include('./partials/nav.ejs') %>
 
     <h1>Animals Index</h1>
 
     <% for (let i = 0; i < animals.length; i++) { %>
         <div>
+
             <a href='/animals/<%= animals[i]._id %>'>
                 <%= animals[i].species %>
             </a>
             
-            <p>Click here to see more</p>
+            <!-- <p>Click here to see more</p> -->
 
             <!--delete form here-->
-            <form action='/animals/<%= animals[i]._id%>/_method=DELETE' method='post'>
+            <form action='/animals/<%= animals[i]._id%>/?_method=DELETE' method='post'>
                 <input type='submit' value='Delete Animal'>
             </form>
+            <br>
 
-        </div>
+            <!-- Link to our edit page -->
+            <!-- <a href='/animals/edit/<#%= animals[i]._id %>/'>Edit <#%= animals[i].species %></a> -->
+
+        <div>
     <% } %>
 </body>
 </html>
