@@ -11,6 +11,7 @@ const methodOverride = require('method-override')
 const app = express();
 const PORT = process.env.PORT || 3013;
 
+const seedAnimal = require('./models/seed.js')
 const Animal = require('./models/Animal.js')
 
 
@@ -171,6 +172,38 @@ app.put('/animals/:id', async (req, res) => {
 
 
 
+// Seed
+app.get('/animals/seed', async (req, res) => {
+    try {
+        // delete all animals in the db
+        await Animal.deleteMany({})
+
+        // create starter Animals in db
+        await Animal.create(
+            // [
+            //     { species: "Cat", extinct: "false", location: "Salem, NC", lifeExpectancy: "9" },
+            //     { species: "Monkey", extinct: "true", location: "San Diego, CA", lifeExpectancy: "100" },
+            //     { species: "Elephant", extinct: "true", location: "Africa", lifeExpectancy: "99" },
+            //     { species: "Fish", extinct: "false", location: "Denver, CO", lifeExpectancy: "38"},
+            //     { species: "Vizsla", extinct: "false", location: "Chula Vista", lifeExpectancy: "7" },
+            // ]
+            seedAnimal
+        )
+
+        // redirect back to the index
+        res.redirect('/animals')
+
+    } catch (error) {
+        res.send('Seed Route error')
+    }
+});
+
+
+
+
+
+
+
 
 // Show - always last
 app.get('/animals/:id', async (req, res) => {
@@ -182,7 +215,6 @@ app.get('/animals/:id', async (req, res) => {
     // render show.ejs with the foundAnimal
     res.render('show.ejs', { animal: foundAnimal })
 })
-
 
 
 
