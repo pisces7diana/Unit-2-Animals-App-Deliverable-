@@ -1,0 +1,49 @@
+/* body {
+    color: red;
+} */
+
+#newform {
+    width: 50%;
+}
+
+fieldset {
+    border: 1px solid gray;
+    padding: 20px;
+    margin: 0px;
+}
+
+legend {
+    color: red;
+}
+
+label {
+    color: orangered;
+}
+
+input {
+    color: green;
+
+}
+
+input[type="submit"] {
+    width: fit-content;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: yellow;
+}
+
+#new-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.animal-species {
+    font-size: 20px;
+}
+
+#deleteform {
+    width: fit-content;
+}

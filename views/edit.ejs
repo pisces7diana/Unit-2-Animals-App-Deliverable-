@@ -2,24 +2,29 @@
 <html lang="en">
         <%- include('./partials/head.ejs') %>
 
-    <body>
-        <%- include('./partials/nav.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
 
-        <%# console.log(animal) %>
+    <%# console.log(animal) %>
         
-        <h1>Let's Edit <%= animal.species %> </h1>
+    <h1>Let's Edit <%= animal.species %> </h1>
 
-        <form action="/animals/<%= animal._id %>/?_method=PUT" method="post">
-            <label>What's the species?: <input type="text" name="species" value="<%= animal.species %>"></label>
-            <label>Extinct?: <input
+    <form action="/animals/<%= animal._id %>/?_method=PUT" method="post">
+
+        <label>What's the species?: <input type="text" name="species" value="<%= animal.species %>"></label>
+
+        <label>Extinct?: <input
                 type="checkbox"
                 name="extinct"
                 <%= animal.extinct ? "checked" : "" %>
                 ></label>
-            <label>Where's it located?: <input type="text" name="location" value="<%= animal.location %>"></label>
-            <label>Life Expectancy in years: <input type="text" name="lifeExpectancy" value="<%= animal.lifeExpectancy %>"></label>
+        <label>Where's it located?: <input type="text" name="location" value="<%= animal.location %>"></label>
+
+        <label>Life Expectancy in years: <input type="text" name="lifeExpectancy" value="<%= animal.lifeExpectancy %>"></label>
         
-            <input type="submit" value="Update <%= animal.species %>">
-        </form>
-    </body>
+        <input type="submit" value="Update <%= animal.species %>">
+
+    </form>
+
+</body>
 </html>

@@ -9,14 +9,17 @@
 
     <%# <h1>Animal Show Page</h1> %>
 
-    <h2>What's the Animal about?</h2>
+    <h2>Animal Show-off</h2>
 
     <!-- Link to our edit page -->
     <a href='/animals/edit/<%= animal._id %>/'>Edit <%= animal.species %></a>
     
     <h3>Species: <%= animal.species %> </h3>
+
     <h3>Extinct: <%= animal.extinct ? "Yes, it went to animal heaven" : "Nah, it's aliiive!" %> </h3>
+
     <h3>Location: <%= animal.location %> </h3>
+    
     <h3>Life Expectancy in years: <%= animal.lifeExpectancy %> </h3>
         
 </body>
