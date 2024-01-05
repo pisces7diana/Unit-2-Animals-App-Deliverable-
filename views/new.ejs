@@ -4,18 +4,34 @@
 <body>
 
     <%- include('./partials/nav.ejs') %>
-    
-    <h1>New Animal Form</h1>
 
-    <%# <a href='/animals'>Go Back to Animals List</a> %>
+    <div id="new-body">
 
-    <form action="/animals" method="post">
-        <label>Species: <input type="text" name="species"></label><br><br>
-        <label>Is it extinct?: <input type="checkbox" name="extinct"></label><br><br>
-        <label>Location: <input type="text" name="location"></label><br><br>
-        <label>Life Expectancy in years: <input type="text" name="lifeExpectancy"></label><br><br>
-        
-        <input type="submit" value="Add a new Animal to the list">
-    </form>
+        <h1>New Animal Form</h1>
+
+        <%# <a href='/animals'>Go Back to Animals List</a> %>
+
+        <form action="/animals" method="post" id="newform">
+
+            <fieldset id="newanimal">
+
+                <legend>What's your new Animal about?</legend>
+
+                    <label>Species: <input type="text" name="species" id="species"></label><br><br>
+
+                    <label>Is it extinct?: <input type="checkbox" name="extinct" id="extinct"></label><br><br>
+
+                    <label>Location: <input type="text" name="location" id="location"></label><br><br>
+                    
+                    <label>Life Expectancy in years: <input type="text" name="lifeExpectancy" id="lifeExpectancy"></label><br><br>
+                    
+                    <input type="submit" value="Add a new Animal to the list">
+
+            </fieldset>
+
+        </form>
+
+    </div>
+
 </body>
 </html>

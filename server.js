@@ -1,3 +1,10 @@
+// server is serving up the router
+// router is serving up the routes associated with its model
+// the model is controlling the actions inside of the routes.
+// where I define models is in the models directory, where I can check the shape (primary source of truth of the shape of my data that I'm working with)
+// serve up public directory... will serve up css file
+
+
 /**
  * DEPENDENCIES
  */
@@ -18,13 +25,10 @@ const Animal = require('./models/Animal.js')
 
 
 
-
-
-
-
 /**
  * MIDDLEWARE
  */
+
 
 
 
@@ -40,12 +44,9 @@ app.use((req, res, next) => {
 })
 
 app.use(morgan('dev')) // logs
-app.use(express.urlencoded({extended: true})) // body parser ("breaking down data/interprete it in order to extract meaningful info) this is how we get access to req.body
+app.use(express.urlencoded({extended: true})) // body parser ("breaking down data/interprete it in order to extract meaningful info") this is how we get access to req.body
 app.use(methodOverride('_method')) // for DELETE PUT HTTP verbs
-
-
-
-
+app.use('/public', express.static('public')) // serve up our public directory with the url prefix of /public/styles.css, such as localhost:3000/public/styles.css so I can see my css
 
 
 
@@ -71,19 +72,11 @@ app.use('/animals', router)
 
 
 
-
-
-
-
 // // New
 // app.get('/animals/new', (req, res) => {
 //     // res.send('new animal')
 //     res.render('new.ejs')
 // })
-
-
-
-
 
 
 
@@ -105,10 +98,6 @@ app.use('/animals', router)
 //         res.status(500).send('delete not successful')
 //     }
 // })
-
-
-
-
 
 
 
@@ -137,10 +126,6 @@ app.use('/animals', router)
 
 
 
-
-
-
-
 // // Edit
 // app.get('/animals/edit/:id', async (req, res) => {
 //     try {
@@ -151,10 +136,6 @@ app.use('/animals', router)
 //         res.send('Edit Route error')
 //     }
 // })
-
-
-
-
 
 
 
@@ -185,9 +166,6 @@ app.use('/animals', router)
 
 
 
-
-
-
 // // Seed
 // app.get('/animals/seed', async (req, res) => {
 //     try {
@@ -212,11 +190,7 @@ app.use('/animals', router)
 //     } catch (error) {
 //         res.send('Seed Route error')
 //     }
-// });
-
-
-
-
+// })
 
 
 
@@ -231,9 +205,6 @@ app.use('/animals', router)
 //     // render show.ejs with the foundAnimal
 //     res.render('show.ejs', { animal: foundAnimal })
 // })
-
-
-
 
 
 

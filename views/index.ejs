@@ -8,25 +8,30 @@
 
     <h1>Animals Index</h1>
 
-    <% for (let i = 0; i < animals.length; i++) { %>
-        <div>
+    <div class="animal-container">
 
-            <a href='/animals/<%= animals[i]._id %>'>
-                <%= animals[i].species %>
-            </a>
-            
-            <!-- <p>Click here to see more</p> -->
+        <% for (let i = 0; i < animals.length; i++) { %>
 
-            <!--delete form here-->
-            <form action='/animals/<%= animals[i]._id%>/?_method=DELETE' method='post'>
-                <input type='submit' value='Delete Animal'>
-            </form>
-            <br>
+            <div class="animal">
 
-            <!-- Link to our edit page -->
-            <!-- <a href='/animals/edit/<#%= animals[i]._id %>/'>Edit <#%= animals[i].species %></a> -->
+                <a href='/animals/<%= animals[i]._id %>' class="animal-species">
+                    <%= animals[i].species %>
+                </a>
+                
+                <!-- <p>Click here to see more</p> -->
 
-        <div>
-    <% } %>
+                <!--delete form here-->
+                <form action='/animals/<%= animals[i]._id%>/?_method=DELETE' method='post' id="deleteform">
+                    <input type='submit' value='Delete Animal'>
+                </form>
+                
+                <br>
+
+            <div>
+
+        <% } %>
+
+    </div>
+
 </body>
 </html>
